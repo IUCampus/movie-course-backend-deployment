@@ -12,14 +12,14 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
                 classes = {
                         com.frankapp.backendmovie.repository.UserRepository.class,
                         com.frankapp.backendmovie.repository.PaymentRepository.class,
-                        com.frankapp.backendmovie.repository.ReviewRepository.class
+                        com.frankapp.backendmovie.repository.ReviewRepository.class,
+                        com.frankapp.backendmovie.repository.BookingRepository.class
                 }))
 @EnableReactiveMongoRepositories(basePackages = "com.frankapp.backendmovie.repository",
         includeFilters = @org.springframework.context.annotation.ComponentScan.Filter(
                 type = org.springframework.context.annotation.FilterType.ASSIGNABLE_TYPE,
                 classes = {
-                        com.frankapp.backendmovie.repository.MovieRepository.class,
-                        com.frankapp.backendmovie.repository.BookingRepository.class
+                        com.frankapp.backendmovie.repository.MovieRepository.class
                 }))
 public class BackendMovieApplication {
 

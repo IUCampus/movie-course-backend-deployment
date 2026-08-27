@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import reactor.core.publisher.Mono;
-
 @RestController
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/bookings")
@@ -21,11 +19,14 @@ public class BookingController {
     private BookingService bookingService;
 
     @PostMapping
-    public Mono<ResponseEntity<Booking>> bookSeat(@RequestParam String userId,
+    public ResponseEntity<Booking> bookSeat(@RequestParam String userId,
                                             @RequestParam String movieId,
                                             @RequestParam String seatNumber) {
-        return bookingService.createBooking(userId, movieId, seatNumber)
-                .map(ResponseEntity::ok)
-                .onErrorResume(e -> Mono.just(ResponseEntity.badRequest().build()));
+        try {
+            Booking booking = bookingService.createBooking(userId, movieId, seatNumber);
+            return ResponseEntity.ok(booking);
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }
