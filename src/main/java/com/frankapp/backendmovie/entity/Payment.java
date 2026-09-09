@@ -1,5 +1,6 @@
 package com.frankapp.backendmovie.entity;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-
+@Tag(
+        name = "Payment",
+        description = "API for managing payments"
+)
 @Data
 @Document(collection = "payments")
 public class Payment {

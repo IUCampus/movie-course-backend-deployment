@@ -1,12 +1,16 @@
 package com.frankapp.backendmovie.entity;
 
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
+@Tag(
+        name = "Movie",
+        description = "API for managing movies"
+)
 @Data
 @Document(collection = "movies")
 public class Movie {

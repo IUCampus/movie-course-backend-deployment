@@ -1,5 +1,6 @@
 package com.frankapp.backendmovie.entity;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,7 +8,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.Instant;
-
+@Tag(
+        name = "Review",
+        description = "API for managing reviews"
+)
 @Data
 @Document(collection = "reviews")
 public class Review {
