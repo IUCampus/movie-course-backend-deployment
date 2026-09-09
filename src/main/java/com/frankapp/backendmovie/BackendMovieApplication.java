@@ -17,7 +17,7 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
                 contact = @Contact(
                         name = "Francis C. Chigozie",
                         email = "chigozie-cyriacus.francis@iu-study.org",
-                        url = "https://www.franciswebapp.com/"
+                        url = "https://www.franciswebapp.com"
                 )
         ),
         externalDocs = @ExternalDocumentation(
